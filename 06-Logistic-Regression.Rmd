@@ -371,7 +371,7 @@ In addition to examining how the response correlates with the predictors, it is 
 The first model includes only one covariate, distance.
 
 ```{r, comment = NA}
-# Model with just distance
+# Model with just distance the cbind is special to glm binomial, you give the success and the failure rather tan a proportion in this case
 model.HaleD <- glm(cbind(YesVotes, NumVotes - YesVotes) ~
     distance, family = binomial, data = rrHale.df)
 # alternative expression

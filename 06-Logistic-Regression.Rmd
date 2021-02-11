@@ -26,6 +26,7 @@ if(knitr::is_html_output()){options(knitr.table.format = "html")} else {options(
 
 ```{r load_packages6, message = FALSE}
 # Packages required for Chapter 6
+library(kableExtra)
 library(gridExtra)  
 library(mnormt) 
 library(lme4) 
@@ -374,7 +375,7 @@ The first model includes only one covariate, distance.
 # Model with just distance the cbind is special to glm binomial, you give the success and the failure rather tan a proportion in this case
 model.HaleD <- glm(cbind(YesVotes, NumVotes - YesVotes) ~
     distance, family = binomial, data = rrHale.df)
-# alternative expression
+# alternative expression this is way I shall do !!!
 model.HaleD.alt <- glm(YesVotes / NumVotes ~ distance, 
     weights = NumVotes, family = binomial, data = rrHale.df)
 ```
